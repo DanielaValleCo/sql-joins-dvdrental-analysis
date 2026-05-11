@@ -31,8 +31,8 @@ README.md
 queries.sql
 data_notes.md
 setup_database.md
-images/
-results/
+images
+results
 ```
 
 Estos archivos son independientes de la base de datos en PostgreSQL. Por lo tanto, borrar la base `dvdrental` desde pgAdmin no elimina los archivos del proyecto almacenados en la computadora.
