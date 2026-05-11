@@ -99,7 +99,7 @@ C:\\Users\\HP\\Documents\\PORTAFOLIO\_sql\\dvdrental.zip
 
 
 
-\### 2. Problema inicial: confusión entre ZIP, TAR y carpeta extraída
+### 2. Problema inicial: confusión entre ZIP, TAR y carpeta extraída
 
 
 
