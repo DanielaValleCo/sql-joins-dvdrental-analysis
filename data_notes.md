@@ -78,53 +78,43 @@ Contiene información de los clientes registrados en la empresa.
 
 Campos relevantes:
 
-- `customer\_id`: identificador único del cliente.
+- `customer_id`: identificador único del cliente.
 
-- `store\_id`: tienda asociada al cliente.
+- `store_id`: tienda asociada al cliente.
 
-- `first\_name`: nombre del cliente.
+- `first_name`: nombre del cliente.
 
-- `last\_name`: apellido del cliente.
+- `last_name`: apellido del cliente.
 
 - `email`: correo electrónico del cliente.
 
-- `address\_id`: dirección asociada al cliente.
+- `address_id`: dirección asociada al cliente.
 
 - `active`: indica si el cliente está activo.
 
-
-
 Esta tabla fue utilizada para analizar distribución de clientes, clientes con mayor ingreso generado y clientes con o sin rentas asociadas.
-
 
 
 \---
 
 
-
-\### `payment`
-
-
+### `payment`
 
 Contiene los pagos realizados por los clientes.
 
-
-
 Campos relevantes:
 
+- `payment_id`: identificador único del pago.
 
+- `customer_id`: cliente que realizó el pago.
 
-\- `payment\_id`: identificador único del pago.
+- `staff_id`: empleado que procesó el pago.
 
-\- `customer\_id`: cliente que realizó el pago.
+- `rental_id`: renta asociada al pago.
 
-\- `staff\_id`: empleado que procesó el pago.
+- `amount`: monto pagado.
 
-\- `rental\_id`: renta asociada al pago.
-
-\- `amount`: monto pagado.
-
-\- `payment\_date`: fecha del pago.
+- `payment_date`: fecha del pago.
 
 
 
@@ -136,29 +126,24 @@ Esta tabla fue clave para calcular ingresos totales, ingresos por país, ingreso
 
 
 
-\### `rental`
-
+### `rental`
 
 
 Contiene los registros de renta de películas.
 
-
-
 Campos relevantes:
 
+- `rental_id`: identificador único de la renta.
 
+- `rental_date`: fecha de la renta.
 
-\- `rental\_id`: identificador único de la renta.
+- `inventory_id`: copia de inventario rentada.
 
-\- `rental\_date`: fecha de la renta.
+- `customer_id`: cliente que realizó la renta.
 
-\- `inventory\_id`: copia de inventario rentada.
+- `return_date`: fecha de devolución.
 
-\- `customer\_id`: cliente que realizó la renta.
-
-\- `return\_date`: fecha de devolución.
-
-\- `staff\_id`: empleado asociado a la renta.
+- `staff_id`: empleado asociado a la renta.
 
 
 
@@ -170,24 +155,20 @@ Esta tabla permitió medir demanda, frecuencia de rentas, películas más rentad
 
 
 
-\### `inventory`
-
+### `inventory`
 
 
 Contiene las copias disponibles de películas en cada tienda.
 
 
-
 Campos relevantes:
 
 
+- `inventory_id`: identificador único de la copia en inventario.
 
-\- `inventory\_id`: identificador único de la copia en inventario.
+- `film_id`: película asociada.
 
-\- `film\_id`: película asociada.
-
-\- `store\_id`: tienda donde se encuentra la copia.
-
+- `store_id`: tienda donde se encuentra la copia.
 
 
 Esta tabla fue utilizada para conectar películas con rentas y tiendas. También permitió analizar cobertura de inventario por tienda y categoría.
@@ -198,75 +179,61 @@ Esta tabla fue utilizada para conectar películas con rentas y tiendas. También
 
 
 
-\### `film`
-
-
+### `film`
 
 Contiene el catálogo de películas.
 
-
-
 Campos relevantes:
 
+- `film_id`: identificador único de la película.
 
+- `title`: título de la película.
 
-\- `film\_id`: identificador único de la película.
+- `description`: descripción de la película.
 
-\- `title`: título de la película.
+- `release_year`: año de lanzamiento.
 
-\- `description`: descripción de la película.
+- `language_id`: idioma de la película.
 
-\- `release\_year`: año de lanzamiento.
+- `rental_duration`: duración de renta.
 
-\- `language\_id`: idioma de la película.
+- `rental_rate`: tarifa de renta.
 
-\- `rental\_duration`: duración de renta.
+- `length`: duración de la película.
 
-\- `rental\_rate`: tarifa de renta.
+- `replacement_cost`: costo de reemplazo.
 
-\- `length`: duración de la película.
-
-\- `replacement\_cost`: costo de reemplazo.
-
-\- `rating`: clasificación.
+- `rating`: clasificación.
 
 
 
 Esta tabla fue utilizada para analizar películas más rentadas, películas sin rentas y películas sin actores asociados.
 
 
-
 \---
 
 
-
-\### `category`
-
-
+### `category`
 
 Contiene las categorías o géneros de películas.
-
 
 
 Campos relevantes:
 
 
+- `category_id`: identificador único de la categoría.
 
-\- `category\_id`: identificador único de la categoría.
-
-\- `name`: nombre de la categoría.
-
+- `name`: nombre de la categoría.
 
 
 Esta tabla fue utilizada para analizar categorías más rentadas, categorías con mayores ingresos, categorías sin rentas y categorías estratégicas en demanda y rentabilidad.
-
 
 
 \---
 
 
 
-\### `film\_category`
+### `film_category`
 
 
 
@@ -278,10 +245,9 @@ Campos relevantes:
 
 
 
-\- `film\_id`: identificador de la película.
+- `film_id`: identificador de la película.
 
-\- `category\_id`: identificador de la categoría.
-
+- `category_id`: identificador de la categoría.
 
 
 Esta tabla permite resolver la relación entre `film` y `category`.
@@ -292,46 +258,34 @@ Esta tabla permite resolver la relación entre `film` y `category`.
 
 
 
-\### `actor`
-
-
+### `actor`
 
 Contiene información de los actores.
 
-
-
 Campos relevantes:
 
+- `actor_id`: identificador único del actor.
 
+- `first_name`: nombre del actor.
 
-\- `actor\_id`: identificador único del actor.
-
-\- `first\_name`: nombre del actor.
-
-\- `last\_name`: apellido del actor.
-
+- `last_name`: apellido del actor.
 
 
 \---
 
 
-
-\### `film\_actor`
-
+### `film_actor`
 
 
 Es una tabla puente que conecta películas con actores.
 
 
-
 Campos relevantes:
 
 
+- `actor_id`: identificador del actor.
 
-\- `actor\_id`: identificador del actor.
-
-\- `film\_id`: identificador de la película.
-
+- `film_id`: identificador de la película.
 
 
 Esta tabla fue utilizada para detectar películas del catálogo sin actores asociados.
@@ -342,24 +296,19 @@ Esta tabla fue utilizada para detectar películas del catálogo sin actores asoc
 
 
 
-\### `store`
-
+### `store`
 
 
 Contiene información de las tiendas.
 
-
-
 Campos relevantes:
 
 
+- `store_id`: identificador único de la tienda.
 
-\- `store\_id`: identificador único de la tienda.
+- `manager_staff_id`: empleado encargado de la tienda.
 
-\- `manager\_staff\_id`: empleado encargado de la tienda.
-
-\- `address\_id`: dirección de la tienda.
-
+- `address_id`: dirección de la tienda.
 
 
 Esta tabla fue utilizada para analizar inventario por tienda y categorías disponibles en cada sucursal.
@@ -370,29 +319,26 @@ Esta tabla fue utilizada para analizar inventario por tienda y categorías dispo
 
 
 
-\### `staff`
-
+### `staff`
 
 
 Contiene información de los empleados.
 
 
-
 Campos relevantes:
 
 
+- `staff_id`: identificador único del empleado.
 
-\- `staff\_id`: identificador único del empleado.
+- `first_name`: nombre del empleado.
 
-\- `first\_name`: nombre del empleado.
+- `last_name`: apellido del empleado.
 
-\- `last\_name`: apellido del empleado.
+- `address_id`: dirección del empleado.
 
-\- `address\_id`: dirección del empleado.
+- `store_id`: tienda asociada.
 
-\- `store\_id`: tienda asociada.
-
-\- `active`: estado del empleado.
+- `active`: estado del empleado.
 
 
 
@@ -404,29 +350,24 @@ Esta tabla puede utilizarse para analizar desempeño operativo, pagos procesados
 
 
 
-\### `address`
-
+### `address`
 
 
 Contiene direcciones asociadas a clientes, tiendas y empleados.
 
-
-
 Campos relevantes:
 
+- `address_id`: identificador único de la dirección.
 
+- `address`: dirección.
 
-\- `address\_id`: identificador único de la dirección.
+- `district`: distrito.
 
-\- `address`: dirección.
+- `city_id`: ciudad asociada.
 
-\- `district`: distrito.
+- `postal_code`: código postal.
 
-\- `city\_id`: ciudad asociada.
-
-\- `postal\_code`: código postal.
-
-\- `phone`: teléfono.
+- `phone`: teléfono.
 
 
 
@@ -434,45 +375,36 @@ Campos relevantes:
 
 
 
-\### `city`
-
-
+### `city`
 
 Contiene las ciudades registradas en la base.
 
 
-
 Campos relevantes:
 
 
+- `city_id`: identificador único de la ciudad.
 
-\- `city\_id`: identificador único de la ciudad.
+- `city`: nombre de la ciudad.
 
-\- `city`: nombre de la ciudad.
-
-\- `country\_id`: país asociado.
+- `country_id`: país asociado.
 
 
 
 \---
 
 
-
-\### `country`
-
+### `country`
 
 
 Contiene los países registrados en la base.
 
-
-
 Campos relevantes:
 
 
+- `country_id`: identificador único del país.
 
-\- `country\_id`: identificador único del país.
-
-\- `country`: nombre del país.
+- `country`: nombre del país.
 
 
 
@@ -484,71 +416,61 @@ Esta tabla fue utilizada para analizar distribución geográfica de clientes e i
 
 
 
-\### `language`
-
+### `language`
 
 
 Contiene los idiomas de las películas.
 
-
-
 Campos relevantes:
 
+- `language_id`: identificador único del idioma.
 
-
-\- `language\_id`: identificador único del idioma.
-
-\- `name`: nombre del idioma.
+- `name`: nombre del idioma.
 
 
 
 \---
 
 
-
-\## Relaciones importantes
-
-
+## Relaciones importantes
 
 Las principales relaciones utilizadas durante el análisis fueron:
 
-
-
 ```sql
 
-customer.address\_id → address.address\_id
+customer.address_id → address.address_id
 
-address.city\_id → city.city\_id
+address.city_id → city.city_id
 
-city.country\_id → country.country\_id
+city.country_id → country.country_id
 
-customer.store\_id → store.store\_id
+customer.store_id → store.store_id
 
-store.address\_id → address.address\_id
+store.address_id → address.address_id
 
-rental.customer\_id → customer.customer\_id
+rental.customer_id → customer.customer_id
 
-rental.inventory\_id → inventory.inventory\_id
+rental.inventory_id → inventory.inventory_id
 
-inventory.film\_id → film.film\_id
+inventory.film_id → film.film_id
 
-inventory.store\_id → store.store\_id
+inventory.store_id → store.store_id
 
-payment.customer\_id → customer.customer\_id
+payment.customer_id → customer.customer_id
 
-payment.rental\_id → rental.rental\_id
+payment.rental_id → rental.rental_id
 
-payment.staff\_id → staff.staff\_id
+payment.staff_id → staff.staff_id
 
-film\_category.film\_id → film.film\_id
+film_category.film_id → film.film_id
 
-film\_category.category\_id → category.category\_id
+film_category.category_id → category.category_id
 
-film\_actor.film\_id → film.film\_id
+film_actor.film_id → film.film_id
 
-film\_actor.actor\_id → actor.actor\_id
+film_actor.actor_id → actor.actor_id
 
-film.language\_id → language.language\_id
+film.language_id → language.language_id
 
 ```
 
@@ -558,11 +480,11 @@ film.language\_id → language.language\_id
 
 
 
-\## Rutas de análisis utilizadas
+## Rutas de análisis utilizadas
 
 
 
-\### Clientes por país
+### Clientes por país
 
 
 
@@ -586,12 +508,10 @@ Esta ruta permitió contar clientes por país e identificar mercados con mayor c
 
 
 
-\### Ingresos por país
-
+### Ingresos por país
 
 
 Para calcular ingresos por país se utilizó la ruta:
-
 
 
 ```sql
@@ -599,7 +519,6 @@ Para calcular ingresos por país se utilizó la ruta:
 payment → customer → address → city → country
 
 ```
-
 
 
 Esto permitió identificar qué países generan mayores ingresos totales y comparar esos resultados contra la distribución de clientes.
@@ -610,7 +529,7 @@ Esto permitió identificar qué países generan mayores ingresos totales y compa
 
 
 
-\### Ingreso promedio por cliente y país
+### Ingreso promedio por cliente y país
 
 
 
@@ -632,7 +551,7 @@ La métrica calculada fue:
 
 ```sql
 
-SUM(payment.amount) / COUNT(DISTINCT customer.customer\_id)
+SUM(payment.amount) / COUNT(DISTINCT customer.customer_id)
 
 ```
 
@@ -646,7 +565,7 @@ Esta métrica permitió distinguir entre mercados con muchos clientes y mercados
 
 
 
-\### Categorías más rentadas
+### Categorías más rentadas
 
 
 
@@ -656,7 +575,7 @@ Para analizar la demanda por categoría se utilizó la ruta:
 
 ```sql
 
-category → film\_category → inventory → rental
+category → film_category → inventory → rental
 
 ```
 
@@ -670,7 +589,7 @@ Esta ruta permitió contar cuántas rentas están asociadas a cada categoría.
 
 
 
-\### Ingresos por categoría
+### Ingresos por categoría
 
 
 
@@ -680,7 +599,7 @@ Para analizar rentabilidad por género se utilizó la ruta:
 
 ```sql
 
-category → film\_category → inventory → rental → payment
+category → film_category → inventory → rental → payment
 
 ```
 
@@ -694,7 +613,7 @@ Esto permitió calcular ingresos totales por categoría y comparar popularidad c
 
 
 
-\### Películas más rentadas
+### Películas más rentadas
 
 
 
@@ -718,7 +637,7 @@ Esto permitió contar cuántas veces fue rentada cada película.
 
 
 
-\### Películas sin actores asociados
+### Películas sin actores asociados
 
 
 
@@ -742,7 +661,7 @@ Mediante un `LEFT JOIN`, se identificaron películas sin coincidencia en la tabl
 
 
 
-\### Inventario por tienda y categoría
+### Inventario por tienda y categoría
 
 
 
@@ -764,7 +683,7 @@ Posteriormente, se comparó contra el inventario real mediante:
 
 ```sql
 
-category → film\_category → inventory
+category → film_category → inventory
 
 ```
 
@@ -778,7 +697,7 @@ Esto permitió verificar si cada tienda tenía inventario en todas las categorí
 
 
 
-\## Técnicas SQL utilizadas
+## Técnicas SQL utilizadas
 
 
 
@@ -786,7 +705,7 @@ Durante el proyecto se utilizaron diferentes técnicas SQL:
 
 
 
-\### `INNER JOIN`
+### `INNER JOIN`
 
 
 
@@ -798,13 +717,13 @@ Ejemplos de uso:
 
 
 
-\- Clientes con país.
+- Clientes con país.
 
-\- Pagos con clientes.
+- Pagos con clientes.
 
-\- Rentas con películas.
+- Rentas con películas.
 
-\- Categorías con rentas.
+- Categorías con rentas.
 
 
 
@@ -812,7 +731,7 @@ Ejemplos de uso:
 
 
 
-\### `LEFT JOIN`
+### `LEFT JOIN`
 
 
 
@@ -824,11 +743,11 @@ Ejemplos de uso:
 
 
 
-\- Clientes sin rentas asociadas.
+- Clientes sin rentas asociadas.
 
-\- Películas sin actores registrados.
+- Películas sin actores registrados.
 
-\- Matriz tienda-categoría comparada contra inventario real.
+- Matriz tienda-categoría comparada contra inventario real.
 
 
 
@@ -836,7 +755,7 @@ Ejemplos de uso:
 
 
 
-\### `CROSS JOIN`
+### `CROSS JOIN`
 
 
 
@@ -852,7 +771,7 @@ Este enfoque permitió construir una matriz completa de análisis para evaluar l
 
 
 
-\### `EXCEPT`
+### `EXCEPT`
 
 
 
@@ -864,11 +783,11 @@ Ejemplos de uso:
 
 
 
-\- Categorías del catálogo sin rentas.
+- Categorías del catálogo sin rentas.
 
-\- Películas del catálogo que nunca fueron rentadas.
+- Películas del catálogo que nunca fueron rentadas.
 
-\- Películas con inventario que nunca fueron rentadas.
+- Películas con inventario que nunca fueron rentadas.
 
 
 
@@ -876,7 +795,7 @@ Ejemplos de uso:
 
 
 
-\### `INTERSECT`
+### `INTERSECT`
 
 
 
@@ -888,7 +807,7 @@ Ejemplo de uso:
 
 
 
-\- Categorías que están tanto en el top de rentas como en el top de ingresos.
+- Categorías que están tanto en el top de rentas como en el top de ingresos.
 
 
 
@@ -896,7 +815,7 @@ Ejemplo de uso:
 
 
 
-\### Agregaciones
+### Agregaciones
 
 
 
@@ -936,7 +855,7 @@ LIMIT
 
 
 
-\## Consideraciones sobre los datos
+## Consideraciones sobre los datos
 
 
 
@@ -944,13 +863,13 @@ La base DVD Rental utiliza datos ficticios con fines educativos. Por esta razón
 
 
 
-\- Los títulos de películas no necesariamente corresponden a películas reales.
+- Los títulos de películas no necesariamente corresponden a películas reales.
 
-\- Los nombres de clientes, países y operaciones forman parte de un escenario de práctica.
+- Los nombres de clientes, países y operaciones forman parte de un escenario de práctica.
 
-\- Algunos resultados deben interpretarse como parte de una simulación de negocio.
+- Algunos resultados deben interpretarse como parte de una simulación de negocio.
 
-\- A pesar de ser una base de ejemplo, el modelo relacional permite practicar escenarios comunes de análisis de datos en empresas reales.
+- A pesar de ser una base de ejemplo, el modelo relacional permite practicar escenarios comunes de análisis de datos en empresas reales.
 
 
 
@@ -958,7 +877,7 @@ La base DVD Rental utiliza datos ficticios con fines educativos. Por esta razón
 
 
 
-\## Consideraciones analíticas
+## Consideraciones analíticas
 
 
 
@@ -970,11 +889,11 @@ Por ejemplo:
 
 
 
-\- Se identificaron 42 películas del catálogo sin rentas asociadas.
+- Se identificaron 42 películas del catálogo sin rentas asociadas.
 
-\- Después se verificó si esas películas tenían copias en inventario.
+- Después se verificó si esas películas tenían copias en inventario.
 
-\- Al restringir el análisis a películas con inventario disponible, el resultado fue 0 películas sin renta.
+- Al restringir el análisis a películas con inventario disponible, el resultado fue 0 películas sin renta.
 
 
 
@@ -990,19 +909,19 @@ Este tipo de validación es importante en análisis de datos, ya que evita concl
 
 
 
-\## Archivos relacionados
+## Archivos relacionados
 
 
 
-\- `README.md`: contiene la descripción del proyecto, preguntas de negocio, resultados principales e insights.
+- `README.md`: contiene la descripción del proyecto, preguntas de negocio, resultados principales e insights.
 
-\- `queries.sql`: contiene las consultas SQL utilizadas.
+- `queries.sql`: contiene las consultas SQL utilizadas.
 
-\- `setup\_database.md`: documenta el proceso de descarga, carga y restauración de la base en PostgreSQL.
+- `setup\_database.md`: documenta el proceso de descarga, carga y restauración de la base en PostgreSQL.
 
-\- `images/`: contiene el diagrama entidad-relación de la base.
+- `images/`: contiene el diagrama entidad-relación de la base.
 
-\- `results/`: contiene los resultados exportados de algunas consultas.
+- `results/`: contiene los resultados exportados de algunas consultas.
 
 
 
@@ -1010,7 +929,7 @@ Este tipo de validación es importante en análisis de datos, ya que evita concl
 
 
 
-\## Conclusión sobre el modelo de datos
+## Conclusión sobre el modelo de datos
 
 
 
