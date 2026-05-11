@@ -543,7 +543,7 @@ dvdrental.tar
 
 
 
-\## Archivos del proyecto
+## Archivos del proyecto
 
 
 
@@ -555,13 +555,13 @@ El archivo de respaldo original no se incluye en este repositorio para evitar su
 
 - `queries.sql`: consultas SQL utilizadas en el análisis.
 
-- `data\_notes.md`: notas sobre el modelo relacional y las tablas principales.
+- `data_notes.md`: notas sobre el modelo relacional y las tablas principales.
 
-- `setup\_database.md`: documentación del proceso de descarga, carga y restauración de la base.
+- `setup_database.md`: documentación del proceso de descarga, carga y restauración de la base.
 
-- `images/`: diagrama entidad-relación de la base.
+- `images`: diagrama entidad-relación de la base.
 
-- `results/`: resultados exportados de algunas consultas.
+- `results`: resultados exportados de algunas consultas.
 
 
 
