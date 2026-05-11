@@ -1,12 +1,12 @@
-\# Data Notes
+# Data Notes
 
 
 
-\## Descripción general de la base
+## Descripción general de la base
 
 
 
-La base de datos \*\*DVD Rental\*\* es una base relacional de ejemplo para PostgreSQL que simula la operación de una empresa de renta de películas.
+La base de datos **DVD Rental** es una base relacional de ejemplo para PostgreSQL que simula la operación de una empresa de renta de películas.
 
 
 
@@ -19,15 +19,9 @@ El objetivo de este proyecto fue analizar la base desde una perspectiva de negoc
 
 
 \---
+## Tipo de modelo
 
-
-
-\## Tipo de modelo
-
-
-
-La base DVD Rental utiliza un \*\*modelo relacional normalizado\*\*. Esto significa que la información no está concentrada en una sola tabla, sino separada en diferentes entidades conectadas mediante llaves primarias y llaves foráneas.
-
+La base DVD Rental utiliza un **modelo relacional normalizado**. Esto significa que la información no está concentrada en una sola tabla, sino separada en diferentes entidades conectadas mediante llaves primarias y llaves foráneas.
 
 
 Por ejemplo, el país de un cliente no se encuentra directamente en la tabla `customer`. Para obtenerlo, es necesario recorrer la siguiente relación:
@@ -74,35 +68,29 @@ Este diseño permite evitar duplicidad de información y representa de forma má
 
 
 
-\## Tablas principales
+## Tablas principales
 
 
 
-\### `customer`
-
-
+### `customer`
 
 Contiene información de los clientes registrados en la empresa.
 
-
-
 Campos relevantes:
 
+- `customer\_id`: identificador único del cliente.
 
+- `store\_id`: tienda asociada al cliente.
 
-\- `customer\_id`: identificador único del cliente.
+- `first\_name`: nombre del cliente.
 
-\- `store\_id`: tienda asociada al cliente.
+- `last\_name`: apellido del cliente.
 
-\- `first\_name`: nombre del cliente.
+- `email`: correo electrónico del cliente.
 
-\- `last\_name`: apellido del cliente.
+- `address\_id`: dirección asociada al cliente.
 
-\- `email`: correo electrónico del cliente.
-
-\- `address\_id`: dirección asociada al cliente.
-
-\- `active`: indica si el cliente está activo.
+- `active`: indica si el cliente está activo.
 
 
 
