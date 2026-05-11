@@ -1,12 +1,12 @@
-\# Database Setup
+# Database Setup
 
 
 
-\## Base de datos utilizada
+## Base de datos utilizada
 
 
 
-Para este proyecto se utilizó la base de datos de ejemplo \*\*DVD Rental\*\*, diseñada para practicar consultas SQL en PostgreSQL.
+Para este proyecto se utilizó la base de datos de ejemplo **DVD Rental**, diseñada para practicar consultas SQL en PostgreSQL.
 
 
 
@@ -17,20 +17,17 @@ La base simula la operación de una empresa de renta de películas e incluye tab
 \---
 
 
+## Herramientas utilizadas
 
-\## Herramientas utilizadas
+- PostgreSQL
 
+- pgAdmin
 
+- CMD / Símbolo del sistema de Windows
 
-\- PostgreSQL
+- Archivo de respaldo `dvdrental.tar`
 
-\- pgAdmin
-
-\- CMD / Símbolo del sistema de Windows
-
-\- Archivo de respaldo `dvdrental.tar`
-
-\- SQL
+- SQL
 
 
 
@@ -38,11 +35,11 @@ La base simula la operación de una empresa de renta de películas e incluye tab
 
 
 
-\## Objetivo de esta sección
+## Objetivo de esta sección
 
 
 
-Documentar el proceso seguido para descargar, preparar, restaurar y verificar la base de datos \*\*DVD Rental\*\* en PostgreSQL usando pgAdmin.
+Documentar el proceso seguido para descargar, preparar, restaurar y verificar la base de datos **DVD Rental** en PostgreSQL usando pgAdmin.
 
 
 
@@ -54,11 +51,11 @@ Esta sección también incluye los problemas encontrados durante la carga, ya qu
 
 
 
-\## Proceso de descarga y carga
+## Proceso de descarga y carga
 
 
 
-\### 1. Descarga de la base
+### 1. Descarga de la base
 
 
 
@@ -140,11 +137,11 @@ Sin embargo, el archivo descargado originalmente era un `.zip`, y PostgreSQL/pgA
 
 
 
-\## Intentos fallidos durante la restauración
+## Intentos fallidos durante la restauración
 
 
 
-\### 1. Intento usando formato Directory
+### 1. Intento usando formato Directory
 
 
 
@@ -214,7 +211,7 @@ Este error indicaba que la ruta seleccionada no correspondía realmente a una ca
 
 
 
-\### 2. Verificación de si existía un respaldo tipo Directory
+### 2. Verificación de si existía un respaldo tipo Directory
 
 
 
@@ -242,7 +239,7 @@ Esto permitió descartar la opción `Directory`.
 
 
 
-\### 3. Identificación del archivo real disponible
+### 3. Identificación del archivo real disponible
 
 
 
@@ -278,11 +275,11 @@ Esto confirmó que el problema era que todavía no se había extraído correctam
 
 
 
-\## Solución encontrada
+## Solución encontrada
 
 
 
-\### 1. Extraer el archivo ZIP desde CMD
+### 1. Extraer el archivo ZIP desde CMD
 
 
 
@@ -320,7 +317,7 @@ Este era el archivo que debía utilizarse en pgAdmin para restaurar la base.
 
 
 
-\### 2. Restauración correcta en pgAdmin
+### 2. Restauración correcta en pgAdmin
 
 
 
@@ -344,11 +341,11 @@ Después, en pgAdmin:
 
 
 
-1\. Se hizo clic derecho sobre la base `dvdrental`.
+1. Se hizo clic derecho sobre la base `dvdrental`.
 
-2\. Se seleccionó la opción `Restore`.
+2. Se seleccionó la opción `Restore`.
 
-3\. En `Format`, se seleccionó:
+3. En `Format`, se seleccionó:
 
 
 
@@ -372,7 +369,7 @@ C:\\Users\\HP\\Documents\\PORTAFOLIO\_sql\\dvdrental.tar
 
 
 
-5\. Se ejecutó el proceso de restauración.
+5. Se ejecutó el proceso de restauración.
 
 
 
@@ -392,7 +389,7 @@ Process completed
 
 
 
-\## Verificación final de la carga
+## Verificación final de la carga
 
 
 
@@ -428,9 +425,9 @@ customer
 
 film
 
-film\_actor
+film_actor
 
-film\_category
+film_category
 
 inventory
 
@@ -472,7 +469,7 @@ La consulta devolvió registros correctamente, confirmando que la base estaba li
 
 
 
-\## Resumen del problema y solución
+## Resumen del problema y solución
 
 
 
@@ -508,7 +505,7 @@ C:\\Users\\HP\\Documents\\PORTAFOLIO\_sql\\dvdrental.tar
 
 
 
-\## Diferencia entre los formatos encontrados
+## Diferencia entre los formatos encontrados
 
 
 
@@ -554,17 +551,17 @@ El archivo de respaldo original no se incluye en este repositorio para evitar su
 
 
 
-\- `README.md`: descripción general del proyecto, preguntas de negocio e insights.
+- `README.md`: descripción general del proyecto, preguntas de negocio e insights.
 
-\- `queries.sql`: consultas SQL utilizadas en el análisis.
+- `queries.sql`: consultas SQL utilizadas en el análisis.
 
-\- `data\_notes.md`: notas sobre el modelo relacional y las tablas principales.
+- `data\_notes.md`: notas sobre el modelo relacional y las tablas principales.
 
-\- `setup\_database.md`: documentación del proceso de descarga, carga y restauración de la base.
+- `setup\_database.md`: documentación del proceso de descarga, carga y restauración de la base.
 
-\- `images/`: diagrama entidad-relación de la base.
+- `images/`: diagrama entidad-relación de la base.
 
-\- `results/`: resultados exportados de algunas consultas.
+- `results/`: resultados exportados de algunas consultas.
 
 
 
@@ -572,7 +569,7 @@ El archivo de respaldo original no se incluye en este repositorio para evitar su
 
 
 
-\## Consulta de validación adicional
+## Consulta de validación adicional
 
 
 
@@ -582,13 +579,13 @@ Para verificar que las tablas se encontraban disponibles en el esquema `public`,
 
 ```sql
 
-SELECT table\_name
+SELECT table_name
 
-FROM information\_schema.tables
+FROM information_schema.tables
 
-WHERE table\_schema = 'public'
+WHERE table_schema = 'public'
 
-ORDER BY table\_name;
+ORDER BY table_name;
 
 ```
 
@@ -614,9 +611,9 @@ customer
 
 film
 
-film\_actor
+film_actor
 
-film\_category
+film_category
 
 inventory
 
@@ -638,7 +635,7 @@ store
 
 
 
-\## Conclusión del proceso de carga
+## Conclusión del proceso de carga
 
 
 
@@ -654,13 +651,13 @@ Este proceso fue importante para distinguir entre:
 
 
 
-\- cargar una tabla plana;
+- cargar una tabla plana;
 
-\- restaurar una base de datos completa;
+- restaurar una base de datos completa;
 
-\- seleccionar correctamente el formato de respaldo;
+- seleccionar correctamente el formato de respaldo;
 
-\- validar que las tablas se hayan cargado correctamente.
+- validar que las tablas se hayan cargado correctamente.
 
 
 
