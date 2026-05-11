@@ -451,7 +451,7 @@ También se ejecutó una consulta de prueba:
 
 ```sql
 
-SELECT \*
+SELECT *
 
 FROM customer
 
